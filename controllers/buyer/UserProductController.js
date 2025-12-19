@@ -1,6 +1,19 @@
 
-const Category = require('../models/Category');
-const Product = require('../models/Product');
+const Category = require('../../models/category');
+const Product = require('../../models/Product');
+
+exports.getNewArrivals = async (req, res) => {
+  try {
+    const products = await Product.find()
+      .populate("categoryId", "name")
+      .sort({ createdAt: -1 }) // newest first
+      .limit(20); // optional
+
+    res.status(200).json({ products });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch new arrivals" });
+  }
+};
 
 exports.getProductsByCategory = async (req, res) => {
   try {
@@ -18,7 +31,6 @@ exports.getProductsByCategory = async (req, res) => {
     });
 
     
-
     if (!category) {
       console.log("❌ Category not found");
       return res.status(404).json({ success: false, message: "Category not found" });

@@ -18,10 +18,12 @@ const userRoute = require('./routes/UserRoute')
 const sellerProductRoute = require('./routes/SellerProductRoute')
 const CategoryRoute = require('./routes/CategoryRoute')
 const CartRoute = require('./routes/CartRoute')
+const UserProduct= require('./routes/UserProductRoute')
 
 app.use('/api/auth', userRoute)
 app.use('/api/product', sellerProductRoute)
 app.use('/api/category', CategoryRoute)
 app.use('/api/cart', CartRoute)
+app.use('/api/userproduct',UserProduct)
 
 module.exports = app
