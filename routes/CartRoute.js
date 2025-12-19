@@ -8,12 +8,10 @@ const {
   removeFromCart,
   clearCart,
   updateQuantity,
-} = require('../controllers/cartController');
+} = require('../controllers/buyer/CartController');
 
-// Import auth middleware
-const { authenticateUser } = require('../middlewares/authorizedUser');
+const authenticateUser = require('../middlewares/authenticateUser');
 
-// 🛒 Cart Routes with authentication
 router.get('/', authenticateUser, getCart);
 router.post('/add', authenticateUser, addToCart);
 router.put('/quantity', authenticateUser, updateQuantity);

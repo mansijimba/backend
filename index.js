@@ -5,7 +5,7 @@ const path = require("path")
 const app = express();
 
 let corsOptions = {
-    origin: "*" // or list of domain to whitelist
+    origin: "*" 
 }
 app.use(cors(corsOptions))
 app.use(express.json());
@@ -17,9 +17,11 @@ const PORT = process.env.PORT
 const userRoute = require('./routes/UserRoute')
 const sellerProductRoute = require('./routes/SellerProductRoute')
 const CategoryRoute = require('./routes/CategoryRoute')
+const CartRoute = require('./routes/CartRoute')
 
 app.use('/api/auth', userRoute)
 app.use('/api/product', sellerProductRoute)
 app.use('/api/category', CategoryRoute)
+app.use('/api/cart', CartRoute)
 
 module.exports = app

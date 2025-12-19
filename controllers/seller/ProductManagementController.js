@@ -31,7 +31,7 @@ exports.addProduct = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   try {
     const products = await Product.find().populate("categoryId sellerId");
-
+ 
     res.status(200).json({
       success: true,
       products,
