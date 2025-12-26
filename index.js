@@ -24,7 +24,7 @@ const Wishlist = require('./routes/WishlistRoute')
 app.use('/api/auth', userRoute)
 app.use('/api/product', sellerProductRoute)
 app.use('/api/category', CategoryRoute)
-app.use('/api/cart', CartRoute)
+app.use('/api/cart', CartRoute) 
 app.use('/api/userproduct',UserProduct)
 app.use('/api/wishlist', Wishlist)
 
